@@ -7,6 +7,7 @@ plugins {
 
 android {
     namespace = "co.carmelitas.emai.emai_app"
+
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
