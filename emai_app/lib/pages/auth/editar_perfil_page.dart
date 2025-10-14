@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/custom_button.dart';
+import '../../widgets/custom_button.dart';
 
 class EditarPerfilPage extends StatefulWidget {
   const EditarPerfilPage({super.key});
@@ -29,10 +29,23 @@ class _EditarPerfilPageState extends State<EditarPerfilPage> {
         padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
-            TextField(controller: _nombreController, decoration: const InputDecoration(labelText: 'Nombre')),
-            TextField(controller: _cursoController, decoration: const InputDecoration(labelText: 'Curso a cargo')),
-            TextField(controller: _materiaController, decoration: const InputDecoration(labelText: 'Materia')),
-            TextField(controller: _edadController, decoration: const InputDecoration(labelText: 'Edad'), keyboardType: TextInputType.number),
+            TextField(
+              controller: _nombreController,
+              decoration: const InputDecoration(labelText: 'Nombre'),
+            ),
+            TextField(
+              controller: _cursoController,
+              decoration: const InputDecoration(labelText: 'Curso a cargo'),
+            ),
+            TextField(
+              controller: _materiaController,
+              decoration: const InputDecoration(labelText: 'Materia'),
+            ),
+            TextField(
+              controller: _edadController,
+              decoration: const InputDecoration(labelText: 'Edad'),
+              keyboardType: TextInputType.number,
+            ),
             const SizedBox(height: 12),
             DropdownButton<String>(
               value: sexo,
@@ -50,9 +63,11 @@ class _EditarPerfilPageState extends State<EditarPerfilPage> {
             CustomButton(
               text: 'Guardar',
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Perfil guardado (simulado)')));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Perfil guardado (simulado)')),
+                );
               },
-            )
+            ),
           ],
         ),
       ),

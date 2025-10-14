@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'lobby_page.dart';
-import '../widgets/custom_button.dart';
+import '../home/lobby_page.dart';
+import '../../widgets/custom_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,14 +22,24 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(controller: _emailController, decoration: const InputDecoration(labelText: "Correo")),
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(labelText: "Correo"),
+            ),
             const SizedBox(height: 16),
-            TextField(controller: _passwordController, decoration: const InputDecoration(labelText: "Contraseña"), obscureText: true),
+            TextField(
+              controller: _passwordController,
+              decoration: const InputDecoration(labelText: "Contraseña"),
+              obscureText: true,
+            ),
             const SizedBox(height: 32),
             CustomButton(
               text: 'Entrar',
               onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LobbyPage()));
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LobbyPage()),
+                );
               },
             ),
           ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import '../widgets/custom_button.dart';
+import '../auth/login_page.dart';
+import '../../widgets/custom_button.dart';
 
 class BienvenidaPage extends StatelessWidget {
   const BienvenidaPage({super.key});
@@ -30,7 +30,10 @@ class BienvenidaPage extends StatelessWidget {
               CustomButton(
                 text: 'Iniciar',
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginPage()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const LoginPage()),
+                  );
                 },
               ),
             ],

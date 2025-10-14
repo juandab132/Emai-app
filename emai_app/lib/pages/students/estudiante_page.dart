@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'examen_page.dart';
+import '../scan/examen_page.dart';
 
 class EstudiantePage extends StatelessWidget {
   final String estudiante;
-  const EstudiantePage({super.key, required this.estudiante});
+  const EstudiantePage({
+    super.key,
+    required this.estudiante,
+    required studentId,
+    required studentName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,9 @@ class EstudiantePage extends StatelessWidget {
               itemCount: examenes.length,
               itemBuilder: (context, index) {
                 return Card(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   margin: const EdgeInsets.symmetric(vertical: 8),
                   child: ListTile(
                     title: Text(examenes[index]),
@@ -54,7 +61,7 @@ class EstudiantePage extends StatelessWidget {
               },
               child: const Icon(Icons.camera_alt),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -1,22 +1,29 @@
-// import 'package:google_ml_kit/google_ml_kit.dart';
-import 'dart:io';
+import 'dart:async';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:image_picker/image_picker.dart';
+import '../core/constants.dart';
 
-class OCRService {
-  static Future<String> extractText(File imageFile) async {
-    // final inputImage = InputImage.fromFile(imageFile);
-    // final textRecognizer = GoogleMlKit.vision.textRecognizer();
-    // final RecognizedText recognizedText = await textRecognizer.processImage(inputImage);
-    // await textRecognizer.close();
+/// Servicio OCR on-device con ML Kit.
+/// Devuelve el texto “tal cual” de la imagen.
+/// La normalización la hace AnalisisService.
+class OcrService {
+  const OcrService();
 
-    // String text = '';
-    // for (var block in recognizedText.blocks) {
-    //   for (var line in block.lines) {
-    //     text += line.text + '\n';
-    //   }
-    // }
-    // return text;
+  Future<String> recognizeTextFromImage(XFile image) async {
+    final inputImage = InputImage.fromFilePath(image.path);
+    final recognizer = TextRecognizer(script: TextRecognitionScript.latin);
 
-    // Temporal: solo retorna cadena vacía
-    return '';
+    try {
+      final result = await recognizer
+          .processImage(inputImage)
+          .timeout(const Duration(seconds: kOcrMaxSeconds));
+      return result.text; // texto crudo (líneas separadas por \n)
+    } on TimeoutException {
+      return ''; // o lanza excepción si prefieres
+    } catch (_) {
+      return '';
+    } finally {
+      await recognizer.close();
+    }
   }
 }

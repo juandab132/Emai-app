@@ -26,12 +26,19 @@ class CursoPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => EstudiantePage(estudiante: estudiantes[index]),
+                  builder:
+                      (_) => EstudiantePage(
+                        estudiante: estudiantes[index],
+                        studentId: null,
+                        studentName: null,
+                      ),
                 ),
               );
             },
             child: Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
               margin: const EdgeInsets.symmetric(vertical: 8),
               child: ListTile(
                 title: Text(estudiantes[index]),
