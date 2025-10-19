@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1040490728379",
+    "project_id": "emai-app-64f02",
+    "storage_bucket": "emai-app-64f02.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040490728379:android:9ea348ae2d64d37829129e",
+        "android_client_info": {
+          "package_name": "co.carmelitas.emai.emai_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByjL4hkeEpkaXat0IQFAxeO_KpoWX45Cs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

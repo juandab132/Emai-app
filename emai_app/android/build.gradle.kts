@@ -1,4 +1,13 @@
-// build.gradle.kts
+// android/build.gradle.kts  (PROYECTO)
+
+import org.gradle.api.tasks.Delete
+import org.gradle.api.file.Directory
+
+// 🔹 Declara el plugin de Google Services (sin aplicarlo aquí)
+plugins {
+    id("com.google.gms.google-services") version "4.4.2" apply false
+}
+
 allprojects {
     repositories {
         google()
@@ -22,7 +31,8 @@ tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
 
-// Configuración del buildscript en Kotlin DSL
+// (Opcional) Bloque legacy de buildscript: lo puedes mantener.
+// Flutter maneja la mayor parte desde el plugin y settings.gradle.kts.
 buildscript {
     repositories {
         google()

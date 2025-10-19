@@ -1,4 +1,3 @@
-import 'dart:math';
 import '../core/constants.dart';
 import '../models/operation_result.dart';
 
@@ -138,8 +137,9 @@ class AnalisisService {
   /// Heurística simple para “etiquetar” errores comunes.
   String? _guessTag(num a, String op, num b, num c, num expected) {
     // Error de multiplicación por 0
-    if (op == '*' && (a == 0 || b == 0) && c != 0)
+    if (op == '*' && (a == 0 || b == 0) && c != 0) {
       return 'multiplicacion_por_cero';
+    }
     // Error de signo: esperado = -(c)
     if ((op == '+' || op == '-') && (expected == -c)) return 'signo';
     // Error de llevada (heurística): diferencia de 1, 10 o 100
